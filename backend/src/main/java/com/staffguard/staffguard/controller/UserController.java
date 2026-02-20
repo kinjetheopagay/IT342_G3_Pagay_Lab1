@@ -2,7 +2,6 @@ package com.staffguard.staffguard.controller;
 
 import com.staffguard.staffguard.model.User;
 import com.staffguard.staffguard.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,8 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/me")
     public User getUserByEmail(@RequestParam String email) {
