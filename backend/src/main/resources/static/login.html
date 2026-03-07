@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>StaffGuard Login</title>
+</head>
+<body>
+
+<h2>User Login</h2>
+
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="message"></p>
+
+<script>
+
+function login(){
+
+const data = {
+email: document.getElementById("email").value,
+password: document.getElementById("password").value
+};
+
+fetch("/api/auth/login",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify(data)
+})
+.then(res => res.json())
+.then(data => {
+
+localStorage.setItem("token",data.token);
+
+document.getElementById("message").innerText="Login successful";
+
+setTimeout(()=>{
+window.location="dashboard.html";
+},1000);
+
+})
+.catch(err=>{
+document.getElementById("message").innerText="Invalid login";
+});
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+</head>
+<body>
+
+<h2>StaffGuard Dashboard</h2>
+
+<p id="user"></p>
+
+<button onclick="loadUser()">Load User</button>
+
+<script>
+
+function loadUser(){
+
+const token = localStorage.getItem("token");
+
+fetch("/api/user/me",{
+headers:{
+"Authorization":"Bearer " + token
+}
+})
+.then(res => res.json())
+.then(data=>{
+document.getElementById("user").innerText =
+"Logged in as: " + data.name + " (" + data.email + ")";
+})
+.catch(err=>{
+console.log(err);
+});
+
+}
+
+</script>
+
+</body>
+</html>
