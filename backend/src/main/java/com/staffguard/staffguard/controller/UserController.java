@@ -1,7 +1,8 @@
 package com.staffguard.staffguard.controller;
 
-import com.staffguard.staffguard.model.User;
-import com.staffguard.staffguard.repository.UserRepository;
+import com.staffguard.staffguard.dto.UserResponseDTO;
+import com.staffguard.staffguard.service.UserService;
+import com.staffguard.staffguard.util.JwtUtil;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,15 +10,19 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
+    private final JwtUtil jwtUtil;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService, JwtUtil jwtUtil) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
     @GetMapping("/me")
-    public User getUserByEmail(@RequestParam String email) {
-        return userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    public UserResponseDTO getMe(@RequestHeader("Authorization") String authHeader) {
+        // Extract email from token
+        String token = authHeader.replace("Bearer ", "");
+        String email = jwtUtil.getEmailFromToken(token);
+        return userService.getMe(email);
     }
 }
