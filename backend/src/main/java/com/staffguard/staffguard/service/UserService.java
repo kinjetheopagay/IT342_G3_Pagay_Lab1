@@ -10,6 +10,8 @@ import com.staffguard.staffguard.repository.UserRepository;
 import com.staffguard.staffguard.util.JwtUtil;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -32,13 +34,10 @@ public class UserService {
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setRole("EMPLOYEE"); // default role
+        user.setRole("EMPLOYEE");
 
         User saved = userRepository.save(user);
-
-        // ✅ Generate JWT token
         String token = jwtUtil.generateToken(saved.getEmail(), saved.getRole());
-
         return new UserResponseDTO(saved.getId(), saved.getName(), saved.getEmail(), saved.getRole(), token);
     }
 
@@ -50,9 +49,7 @@ public class UserService {
             throw new InvalidCredentialsException("Invalid email or password");
         }
 
-        // ✅ Generate JWT token
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
-
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getRole(), token);
     }
 
@@ -62,4 +59,19 @@ public class UserService {
 
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getRole(), null);
     }
+
+    public List<UserResponseDTO> getAllUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(u -> new UserResponseDTO(u.getId(), u.getName(), u.getEmail(), u.getRole(), null))
+                .collect(Collectors.toList());
+    }
+
+    public String deleteUser(Long id) {
+    if (!userRepository.existsById(id)) {
+        throw new UserNotFoundException("User not found");
+    }
+    userRepository.deleteById(id);
+    return "User deleted successfully";
+}
 }
