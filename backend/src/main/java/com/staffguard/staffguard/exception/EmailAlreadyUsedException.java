@@ -1,7 +1,0 @@
-package com.staffguard.staffguard.exception;
-
-public class EmailAlreadyUsedException extends RuntimeException {
-    public EmailAlreadyUsedException(String message) {
-        super(message);
-    }
-}
