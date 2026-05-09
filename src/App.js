@@ -19,6 +19,7 @@ import IncidentApproval from "./components/admin/IncidentApproval";
 import AdminAttendance from "./components/admin/AdminAttendance";
 import AdminCashRecords from "./components/admin/AdminCashRecords";
 import Employees from "./components/admin/Employees";
+import Scheduling from "./components/admin/Scheduling";
 
 function PrivateRoute({ children, role }) {
   if (!isLoggedIn()) return <Navigate to="/login" />;
@@ -48,6 +49,7 @@ function App() {
         <Route path="/admin/attendance" element={<PrivateRoute role="ADMIN"><AdminAttendance /></PrivateRoute>} />
         <Route path="/admin/cash-records" element={<PrivateRoute role="ADMIN"><AdminCashRecords /></PrivateRoute>} />
         <Route path="/admin/employees" element={<PrivateRoute role="ADMIN"><Employees /></PrivateRoute>} />
+        <Route path="/admin/scheduling" element={<PrivateRoute role="ADMIN"><Scheduling /></PrivateRoute>} />
       </Routes>
     </Router>
   );

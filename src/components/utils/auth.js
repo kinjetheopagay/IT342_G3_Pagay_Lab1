@@ -32,3 +32,8 @@ export const logout = () => {
 export const authHeader = () => ({
   headers: { Authorization: `Bearer ${getToken()}` }
 });
+
+// ✅ Update stored user info
+export const updateStoredUser = (updatedUser) => {
+  localStorage.setItem("user", JSON.stringify(updatedUser));
+};

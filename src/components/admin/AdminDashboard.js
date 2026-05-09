@@ -17,9 +17,10 @@ function AdminDashboard() {
   const features = [
     { icon: "⚠️", label: "INCIDENTS", path: "/admin/incidents" },
     { icon: "🕐", label: "ATTENDANCE", path: "/admin/attendance" },
+    { icon: "📅", label: "SCHEDULING", path: "/admin/scheduling" },
     { icon: "💰", label: "CASH RECORDS", path: "/admin/cash-records" },
     { icon: "👥", label: "EMPLOYEES", path: "/admin/employees" },
-  ];
+];
 
   return (
     <div style={styles.page}>
