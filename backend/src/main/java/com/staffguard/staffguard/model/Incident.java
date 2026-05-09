@@ -33,8 +33,9 @@ public class Incident {
 
     private LocalTime time;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String imageUrl;
 
     @Column(nullable = false)
-    private String status = "PENDING"; // PENDING, APPROVED, REJECTED
+    private String status = "PENDING";
 }

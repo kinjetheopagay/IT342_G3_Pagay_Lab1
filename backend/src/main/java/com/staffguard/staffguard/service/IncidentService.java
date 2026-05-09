@@ -20,12 +20,12 @@ public class IncidentService {
     private final IncidentRepository incidentRepository;
     private final UserRepository userRepository;
 
-    public IncidentService(IncidentRepository incidentRepository, UserRepository userRepository) {
+    public IncidentService(IncidentRepository incidentRepository,
+                           UserRepository userRepository) {
         this.incidentRepository = incidentRepository;
         this.userRepository = userRepository;
     }
 
-    // Employee submits incident
     public IncidentResponseDTO submitIncident(String email, IncidentRequestDTO dto) {
         User employee = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
@@ -33,17 +33,17 @@ public class IncidentService {
         Incident incident = new Incident();
         incident.setEmployee(employee);
         incident.setTitle(dto.getTitle());
-        incident.setDescription(dto.getDescription());
         incident.setSupervisor(dto.getSupervisor());
         incident.setDate(LocalDate.parse(dto.getDate()));
-        incident.setTime(dto.getTime() != null ? LocalTime.parse(dto.getTime()) : LocalTime.now());
+        incident.setTime(dto.getTime() != null ?
+                LocalTime.parse(dto.getTime()) : LocalTime.now());
         incident.setStatus("PENDING");
+        incident.setImageUrl(dto.getImageUrl());
 
         Incident saved = incidentRepository.save(incident);
         return toDTO(saved);
     }
 
-    // Employee views their own incidents
     public List<IncidentResponseDTO> getMyIncidents(String email) {
         User employee = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
@@ -52,13 +52,11 @@ public class IncidentService {
                 .stream().map(this::toDTO).collect(Collectors.toList());
     }
 
-    // Admin views all incidents
     public List<IncidentResponseDTO> getAllIncidents() {
         return incidentRepository.findAllByOrderByDateDesc()
                 .stream().map(this::toDTO).collect(Collectors.toList());
     }
 
-    // Admin approves or rejects incident
     public IncidentResponseDTO updateStatus(Long id, String status) {
         Incident incident = incidentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Incident not found"));

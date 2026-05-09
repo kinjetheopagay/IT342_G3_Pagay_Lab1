@@ -35,4 +35,13 @@ public class UserController {
 public String deleteUser(@PathVariable Long id) {
     return userService.deleteUser(id);
 }
+
+@PutMapping("/profile-picture")
+public UserResponseDTO updateProfilePicture(
+        @RequestHeader("Authorization") String authHeader,
+        @RequestBody java.util.Map<String, String> body) {
+    String token = authHeader.replace("Bearer ", "");
+    String email = jwtUtil.getEmailFromToken(token);
+    return userService.updateProfilePicture(email, body.get("profilePicture"));
+}
 }

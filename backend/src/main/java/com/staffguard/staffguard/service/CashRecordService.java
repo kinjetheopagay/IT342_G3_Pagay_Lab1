@@ -10,6 +10,7 @@ import com.staffguard.staffguard.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +26,6 @@ public class CashRecordService {
         this.userRepository = userRepository;
     }
 
-    // Admin adds cash record for an employee
     public CashRecordResponseDTO addCashRecord(CashRecordRequestDTO dto, Long employeeId) {
         User employee = userRepository.findById(employeeId)
                 .orElseThrow(() -> new UserNotFoundException("Employee not found"));
@@ -40,6 +40,7 @@ public class CashRecordService {
         record.setEmployee(employee);
         record.setSupervisor(supervisor);
         record.setDate(LocalDate.parse(dto.getDate()));
+        record.setTimePosted(LocalTime.now()); // ✅ auto set current time
         record.setPos(dto.getPos());
         record.setTotalSales(dto.getTotalSales());
         record.setAmount(dto.getAmount());
@@ -48,7 +49,6 @@ public class CashRecordService {
         return toDTO(cashRecordRepository.save(record));
     }
 
-    // Employee views their own cash records
     public List<CashRecordResponseDTO> getMyCashRecords(String email) {
         User employee = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
@@ -57,7 +57,6 @@ public class CashRecordService {
                 .stream().map(this::toDTO).collect(Collectors.toList());
     }
 
-    // Admin views all cash records
     public List<CashRecordResponseDTO> getAllCashRecords() {
         return cashRecordRepository.findAllByOrderByDateDesc()
                 .stream().map(this::toDTO).collect(Collectors.toList());
@@ -69,6 +68,7 @@ public class CashRecordService {
                 r.getEmployee().getName(),
                 r.getSupervisor() != null ? r.getSupervisor().getName() : null,
                 r.getDate().toString(),
+                r.getTimePosted() != null ? r.getTimePosted().toString().substring(0, 5) : null,
                 r.getPos(),
                 r.getTotalSales(),
                 r.getAmount(),

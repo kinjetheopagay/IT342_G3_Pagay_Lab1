@@ -3,6 +3,7 @@ package com.staffguard.staffguard.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -26,6 +27,9 @@ public class CashRecord {
 
     @Column(nullable = false)
     private LocalDate date;
+
+    // ✅ Added time posted
+    private LocalTime timePosted;
 
     private String pos;
     private Double totalSales;

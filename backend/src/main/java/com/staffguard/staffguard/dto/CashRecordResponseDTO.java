@@ -5,18 +5,20 @@ public class CashRecordResponseDTO {
     private String employeeName;
     private String supervisorName;
     private String date;
+    private String timePosted;
     private String pos;
     private Double totalSales;
     private Double amount;
     private String status;
 
     public CashRecordResponseDTO(Long id, String employeeName, String supervisorName,
-                                  String date, String pos, Double totalSales,
-                                  Double amount, String status) {
+                                  String date, String timePosted, String pos,
+                                  Double totalSales, Double amount, String status) {
         this.id = id;
         this.employeeName = employeeName;
         this.supervisorName = supervisorName;
         this.date = date;
+        this.timePosted = timePosted;
         this.pos = pos;
         this.totalSales = totalSales;
         this.amount = amount;
@@ -27,6 +29,7 @@ public class CashRecordResponseDTO {
     public String getEmployeeName() { return employeeName; }
     public String getSupervisorName() { return supervisorName; }
     public String getDate() { return date; }
+    public String getTimePosted() { return timePosted; }
     public String getPos() { return pos; }
     public Double getTotalSales() { return totalSales; }
     public Double getAmount() { return amount; }

@@ -24,5 +24,11 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String role = "EMPLOYEE"; // default role
+    private String role = "EMPLOYEE";
+
+    @Column(unique = true)
+    private String employeeId;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String profilePicture;
 }

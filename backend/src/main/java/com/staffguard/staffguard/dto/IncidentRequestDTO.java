@@ -6,6 +6,7 @@ public class IncidentRequestDTO {
     private String supervisor;
     private String date;
     private String time;
+    private String imageUrl; // ✅ Base64 image
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
@@ -21,4 +22,7 @@ public class IncidentRequestDTO {
 
     public String getTime() { return time; }
     public void setTime(String time) { this.time = time; }
+
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }
