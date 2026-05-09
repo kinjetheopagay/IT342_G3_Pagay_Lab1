@@ -1,76 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#F5F5F5">
+    android:background="#1E2A4A">
 
-    <!-- Header -->
-    <TextView
-        android:id="@+id/tvWelcome"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#1976D2"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="4dp"/>
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Role: "
-        android:textSize="14sp"
-        android:textColor="#888888"
-        android:layout_marginBottom="32dp"/>
+        <!-- Welcome -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
 
-    <!-- Feature Buttons -->
-    <Button
-        android:id="@+id/btnAttendance"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Attendance"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="12dp"/>
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role: "
+            android:textSize="13sp"
+            android:textColor="#9BA4C7"
+            android:layout_marginBottom="16dp"/>
 
-    <Button
-        android:id="@+id/btnSubmitIncident"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Submit Incident"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="12dp"/>
+        <!-- Schedule Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2D3E6B"
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/btnMyIncidents"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="My Incidents"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TODAY'S SCHEDULE"
+                android:textSize="11sp"
+                android:textColor="#9BA4C7"
+                android:layout_marginBottom="4dp"/>
 
-    <Button
-        android:id="@+id/btnCashRecords"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Cash Records"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="32dp"/>
+            <TextView
+                android:id="@+id/tvSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
 
-    <!-- Logout -->
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="Logout"
-        android:backgroundTint="#D32F2F"
-        android:textColor="#FFFFFF"/>
+        </LinearLayout>
 
-</LinearLayout>
+        <!-- Check In/Out Button -->
+        <Button
+            android:id="@+id/btnCheckIn"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="CHECK IN"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:backgroundTint="#E85D24"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Feature Grid Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btnSubmitIncident"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="Submit Incident"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2D3E6B"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnMyIncidents"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="My Incidents"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2D3E6B"/>
+
+        </LinearLayout>
+
+        <!-- Feature Grid Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnAttendance"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="Attendance"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2D3E6B"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnCashRecords"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="Cash Records"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2D3E6B"/>
+
+        </LinearLayout>
+
+        <!-- Logout -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="LOGOUT"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#E24B4A"/>
+
+    </LinearLayout>
+</ScrollView>

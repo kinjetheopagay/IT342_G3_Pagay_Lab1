@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +29,10 @@
 
         <activity android:name=".ui.DashboardActivity" />
         <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.AttendanceActivity" />
+        <activity android:name=".ui.SubmitIncidentActivity" />
+        <activity android:name=".ui.MyIncidentsActivity" />
+        <activity android:name=".ui.CashRecordsActivity" />
 
     </application>
 

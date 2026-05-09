@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E2A4A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#2D3E6B"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Back"
+                android:textColor="#7F77DD"
+                android:backgroundTint="@android:color/transparent"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit Incident"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Success/Error message -->
+            <TextView
+                android:id="@+id/tvMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INCIDENT TITLE *"
+                android:textColor="#9BA4C7"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="e.g. Missing Cash"
+                android:textColor="#FFFFFF"
+                android:background="#2D3E6B"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Description -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DESCRIPTION *"
+                android:textColor="#9BA4C7"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="Describe what happened..."
+                android:textColor="#FFFFFF"
+                android:background="#2D3E6B"
+                android:padding="12dp"
+                android:gravity="top"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Supervisor -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUPERVISOR IN CHARGE *"
+                android:textColor="#9BA4C7"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etSupervisor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Supervisor name"
+                android:textColor="#FFFFFF"
+                android:background="#2D3E6B"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Date -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATE *"
+                android:textColor="#9BA4C7"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="YYYY-MM-DD"
+                android:textColor="#FFFFFF"
+                android:background="#2D3E6B"
+                android:padding="12dp"
+                android:inputType="date"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Image Upload -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROOF IMAGE (optional)"
+                android:textColor="#9BA4C7"
+                android:textSize="12sp"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout
+                android:id="@+id/layoutImageUpload"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="#2D3E6B"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📷 Tap to upload proof image"
+                    android:textColor="#9BA4C7"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JPG, PNG supported"
+                    android:textColor="#5A6A8A"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivPreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnRemoveImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✕ Remove Image"
+                android:textColor="#E24B4A"
+                android:backgroundTint="@android:color/transparent"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="SUBMIT"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#E85D24"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="CANCEL"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#E24B4A"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
