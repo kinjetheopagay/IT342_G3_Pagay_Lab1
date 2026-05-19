@@ -64,11 +64,12 @@ class CashRecordsAdapter(private val records: List<CashRecordResponse>) :
         holder.tvStatus.setBackgroundColor(color)
 
         // Amount
+        val amt = record.amount ?: 0.0
         holder.tvAmount.text = when (record.status) {
-            "FLAT" -> "₱ 0"
-            "SHORT" -> "- ₱ ${"%,.2f".format(Math.abs(record.amount))}"
-            "OVER" -> "+ ₱ ${"%,.2f".format(Math.abs(record.amount))}"
-            else -> "₱ ${record.amount}"
+            "FLAT"  -> "₱ 0"
+            "SHORT" -> "- ₱ ${"%,.2f".format(kotlin.math.abs(amt))}"
+            "OVER"  -> "+ ₱ ${"%,.2f".format(kotlin.math.abs(amt))}"
+            else    -> "₱ ${"%,.2f".format(amt)}"
         }
     }
 

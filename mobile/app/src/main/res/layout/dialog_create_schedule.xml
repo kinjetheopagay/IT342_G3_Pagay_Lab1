@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#2D3E6B"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📅 Create New Schedule"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#E24B4A"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE (YYYY-MM-DD) *"
+            android:textSize="11sp"
+            android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to select date"
+            android:inputType="none"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9BA4C7"
+            android:background="#1E2A4A"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SHIFT START (HH:MM) *"
+            android:textSize="11sp"
+            android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etShiftStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to select start time"
+            android:inputType="none"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9BA4C7"
+            android:background="#1E2A4A"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SHIFT END (HH:MM) *"
+            android:textSize="11sp"
+            android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etShiftEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tap to select end time"
+            android:inputType="none"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9BA4C7"
+            android:background="#1E2A4A"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT SUPERVISOR *"
+            android:textSize="11sp"
+            android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerSupervisor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E2A4A"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT EMPLOYEES * (minimum 3)"
+            android:textSize="11sp"
+            android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+
+        <LinearLayout
+            android:id="@+id/layoutEmployeeSpinners"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnAddEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="+ ADD EMPLOYEE"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1D9E75"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="SUBMIT"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#E85D24"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="CANCEL"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#E24B4A"/>
+
+    </LinearLayout>
+</ScrollView>
