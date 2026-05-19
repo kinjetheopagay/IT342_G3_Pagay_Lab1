@@ -28,6 +28,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var btnSubmitIncident: Button
     private lateinit var btnMyIncidents: Button
     private lateinit var btnCashRecords: Button
+    private lateinit var btnProfile: Button
     private lateinit var btnLogout: Button
 
     private val apiService = ApiClient.retrofit.create(ApiService::class.java)
@@ -45,6 +46,7 @@ class DashboardActivity : AppCompatActivity() {
         btnSubmitIncident = findViewById(R.id.btnSubmitIncident)
         btnMyIncidents = findViewById(R.id.btnMyIncidents)
         btnCashRecords = findViewById(R.id.btnCashRecords)
+        btnProfile = findViewById(R.id.btnProfile)
         btnLogout = findViewById(R.id.btnLogout)
 
         loadUserInfo()
@@ -68,8 +70,12 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, CashRecordsActivity::class.java))
         }
 
+        btnProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
         btnLogout.setOnClickListener {
-            TokenManager.clearToken(this)
+            TokenManager.clearAll(this)
             startActivity(Intent(this, LoginActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             })
@@ -86,7 +92,7 @@ class DashboardActivity : AppCompatActivity() {
                     tvWelcome.text = "Welcome, ${user?.name}!"
                     tvRole.text = "Role: ${user?.role}"
                 } else {
-                    TokenManager.clearToken(this@DashboardActivity)
+                    TokenManager.clearAll(this@DashboardActivity)
                     startActivity(Intent(this@DashboardActivity, LoginActivity::class.java))
                     finish()
                 }

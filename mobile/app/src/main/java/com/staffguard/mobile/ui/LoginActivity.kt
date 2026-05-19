@@ -1,5 +1,6 @@
 package com.staffguard.mobile.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -20,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // ✅ Already logged in? Skip to Dashboard
+        // Already logged in
         if (TokenManager.isLoggedIn(this)) {
             goToDashboard()
             return
@@ -34,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         val authService = ApiClient.retrofit.create(AuthService::class.java)
 
         loginButton.setOnClickListener {
+
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
@@ -49,23 +51,72 @@ class LoginActivity : AppCompatActivity() {
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
+
                         if (response.isSuccessful) {
-                            val token = response.body()?.token
-                            if (token != null) {
-                                // ✅ Save JWT token
-                                TokenManager.saveToken(this@LoginActivity, token)
-                                Toast.makeText(this@LoginActivity, "Login successful!", Toast.LENGTH_SHORT).show()
-                                goToDashboard()
-                            } else {
-                                Toast.makeText(this@LoginActivity, "No token received", Toast.LENGTH_SHORT).show()
+
+                            val loginResponse = response.body()
+
+                            loginResponse?.let {
+
+                                // Save JWT token
+                                TokenManager.saveToken(this@LoginActivity, it.token)
+
+                                // Save role
+                                val prefs = getSharedPreferences(
+                                    "StaffGuardPrefs",
+                                    Context.MODE_PRIVATE
+                                )
+
+                                prefs.edit()
+                                    .putString("user_role", it.role)
+                                    .apply()
+
+                                Toast.makeText(
+                                    this@LoginActivity,
+                                    "Login successful!",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+
+                                // Navigate based on role
+                                if (it.role == "ADMIN") {
+
+                                    startActivity(
+                                        Intent(
+                                            this@LoginActivity,
+                                            AdminDashboardActivity::class.java
+                                        )
+                                    )
+
+                                } else {
+
+                                    startActivity(
+                                        Intent(
+                                            this@LoginActivity,
+                                            DashboardActivity::class.java
+                                        )
+                                    )
+                                }
+
+                                finish()
                             }
+
                         } else {
-                            Toast.makeText(this@LoginActivity, "Invalid email or password", Toast.LENGTH_SHORT).show()
+
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "Invalid email or password",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
 
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        Toast.makeText(this@LoginActivity, "Cannot connect to server", Toast.LENGTH_SHORT).show()
+
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Cannot connect to server",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 })
         }
@@ -76,7 +127,33 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToDashboard() {
-        startActivity(Intent(this, DashboardActivity::class.java))
+
+        val prefs = getSharedPreferences(
+            "StaffGuardPrefs",
+            Context.MODE_PRIVATE
+        )
+
+        val role = prefs.getString("user_role", "USER")
+
+        if (role == "ADMIN") {
+
+            startActivity(
+                Intent(
+                    this,
+                    AdminDashboardActivity::class.java
+                )
+            )
+
+        } else {
+
+            startActivity(
+                Intent(
+                    this,
+                    DashboardActivity::class.java
+                )
+            )
+        }
+
         finish()
     }
 }

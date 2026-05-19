@@ -128,6 +128,15 @@
 
         <!-- Logout -->
         <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="My Profile"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2D3E6B"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="56dp"

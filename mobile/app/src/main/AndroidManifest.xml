@@ -33,6 +33,13 @@
         <activity android:name=".ui.SubmitIncidentActivity" />
         <activity android:name=".ui.MyIncidentsActivity" />
         <activity android:name=".ui.CashRecordsActivity" />
+        <activity android:name=".ui.AdminDashboardActivity"/>
+        <activity android:name=".ui.AdminIncidentsActivity"/>
+        <activity android:name=".ui.AdminAttendanceActivity"/>
+        <activity android:name=".ui.AdminCashRecordsActivity"/>
+        <activity android:name=".ui.AdminScheduleActivity"/>
+        <activity android:name=".ui.AdminEmployeesActivity"/>
+        <activity android:name=".ui.ProfileActivity"/>
 
     </application>
 
