@@ -1,26 +1,41 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../utils/Header";
 
+import incidentsImg   from "../../assets/adm_incidents.png";
+import attendanceImg  from "../../assets/adm_attendance.png";
+import schedulingImg  from "../../assets/adm_scheduling.png";
+import cashRecordsImg from "../../assets/adm_cashRecords.png";
+import employeesImg   from "../../assets/adm_employees.png";
+
 const styles = {
   page: { minHeight: "100vh", backgroundColor: "#1E2A4A", fontFamily: "Inter, system-ui, sans-serif" },
   body: { padding: "24px", maxWidth: "800px", margin: "0 auto" },
   title: { color: "#FFFFFF", fontSize: "18px", fontWeight: "bold", marginBottom: "24px" },
   grid: { display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" },
-  card: { backgroundColor: "#2D3E6B", borderRadius: "12px", padding: "32px 16px", display: "flex", flexDirection: "column", alignItems: "center", cursor: "pointer", transition: "opacity 0.2s" },
-  cardIcon: { fontSize: "48px", marginBottom: "12px" },
-  cardText: { color: "#FFFFFF", fontSize: "14px", fontWeight: "bold", textAlign: "center" },
+  card: {
+    backgroundColor: "#2D3E6B",
+    borderRadius: "12px",
+    overflow: "hidden",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    cursor: "pointer",
+    transition: "opacity 0.2s"
+  },
+  cardImg: { width: "100%", height: "130px", objectFit: "cover", display: "block" },
+  cardText: { color: "#FFFFFF", fontSize: "14px", fontWeight: "bold", padding: "10px 0", textAlign: "center" },
 };
 
 function AdminDashboard() {
   const navigate = useNavigate();
 
   const features = [
-    { icon: "⚠️", label: "INCIDENTS", path: "/admin/incidents" },
-    { icon: "🕐", label: "ATTENDANCE", path: "/admin/attendance" },
-    { icon: "📅", label: "SCHEDULING", path: "/admin/scheduling" },
-    { icon: "💰", label: "CASH RECORDS", path: "/admin/cash-records" },
-    { icon: "👥", label: "EMPLOYEES", path: "/admin/employees" },
-];
+    { img: incidentsImg,   label: "INCIDENTS",    path: "/admin/incidents" },
+    { img: attendanceImg,  label: "ATTENDANCE",   path: "/admin/attendance" },
+    { img: schedulingImg,  label: "SCHEDULING",   path: "/admin/scheduling" },
+    { img: cashRecordsImg, label: "CASH RECORDS", path: "/admin/cash-records" },
+    { img: employeesImg,   label: "EMPLOYEES",    path: "/admin/employees" },
+  ];
 
   return (
     <div style={styles.page}>
@@ -30,7 +45,7 @@ function AdminDashboard() {
         <div style={styles.grid}>
           {features.map((f) => (
             <div key={f.label} style={styles.card} onClick={() => navigate(f.path)}>
-              <span style={styles.cardIcon}>{f.icon}</span>
+              <img src={f.img} alt={f.label} style={styles.cardImg} />
               <span style={styles.cardText}>{f.label}</span>
             </div>
           ))}

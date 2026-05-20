@@ -2,80 +2,73 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { saveAuth } from "../utils/auth";
+import staffGuardLogo from "../../assets/staffGuard_logo.png";
 
 const styles = {
   page: {
     minHeight: "100vh",
     backgroundColor: "#1E2A4A",
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "Inter, system-ui, sans-serif",
   },
-  card: {
-    backgroundColor: "#2D3E6B",
-    borderRadius: "16px",
-    padding: "40px",
-    width: "100%",
-    maxWidth: "420px",
-  },
-  logo: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "10px",
-    marginBottom: "8px",
-  },
-  logoText: {
-    color: "#FFFFFF",
-    fontSize: "22px",
-    fontWeight: "bold",
-  },
+  
   subtitle: {
     color: "#9BA4C7",
     fontSize: "14px",
     textAlign: "center",
-    marginBottom: "32px",
+    marginBottom: "24px",
+  },
+  card: {
+    backgroundColor: "#8B9FEF",
+    borderRadius: "16px",
+    padding: "32px",
+    width: "100%",
+    maxWidth: "420px",
   },
   label: {
-    color: "#9BA4C7",
+    color: "#1E2A4A",
     fontSize: "12px",
+    fontWeight: "bold",
     marginBottom: "6px",
     display: "block",
   },
   input: {
     width: "100%",
     padding: "12px 16px",
-    backgroundColor: "#1E2A4A",
-    border: "1px solid #4A3DB5",
-    borderRadius: "8px",
-    color: "#FFFFFF",
+    backgroundColor: "#C5CCF0",
+    border: "none",
+    borderRadius: "50px",
+    color: "#1E2A4A",
     fontSize: "14px",
     marginBottom: "16px",
     boxSizing: "border-box",
+    outline: "none",
   },
   button: {
-    width: "100%",
-    padding: "14px",
-    backgroundColor: "#4A3DB5",
+    display: "block",
+    margin: "8px auto 0 auto",
+    padding: "12px 40px",
+    backgroundColor: "#1E2A4A",
     color: "#FFFFFF",
     border: "none",
     borderRadius: "50px",
     fontSize: "15px",
     fontWeight: "bold",
     cursor: "pointer",
-    marginTop: "8px",
-  },
-  link: {
-    color: "#7F77DD",
-    cursor: "pointer",
-    textDecoration: "underline",
   },
   footer: {
     color: "#9BA4C7",
     fontSize: "13px",
     textAlign: "center",
     marginTop: "20px",
+  },
+  link: {
+    color: "#7F77DD",
+    cursor: "pointer",
+    textDecoration: "underline",
   },
   error: {
     color: "#E24B4A",
@@ -97,12 +90,24 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
 
+    // Password security validation
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setError("Password must contain at least 1 capital letter");
+      return;
+    }
+    if (!/[0-9]/.test(password)) {
+      setError("Password must contain at least 1 number");
+      return;
+    }
     setLoading(true);
     try {
       const res = await axios.post("http://localhost:8080/api/auth/register", {
@@ -110,7 +115,6 @@ function Register() {
         email,
         password,
       });
-
       saveAuth(res.data.token, res.data);
       navigate("/employee/dashboard");
     } catch (err) {
@@ -122,12 +126,16 @@ function Register() {
 
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
-        <div style={styles.logo}>
-          <span style={styles.logoText}>🛡️ StaffGuard</span>
-        </div>
-        <p style={styles.subtitle}>Register to StaffGuard</p>
 
+      {/* Card */}
+      <div style={styles.card}>
+
+        {/* Logo inside card */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "8px" }}>
+          <img src={staffGuardLogo} alt="StaffGuard" style={{ height: "80px", objectFit: "contain" }}/>
+        </div>
+
+        <p style={styles.subtitle}>Register to StaffGuard</p>
         {error && <p style={styles.error}>{error}</p>}
 
         <form onSubmit={handleSubmit}>
@@ -137,8 +145,8 @@ function Register() {
             placeholder="Enter your full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
-          />
+            required/>
+
           <label style={styles.label}>EMAIL</label>
           <input
             style={styles.input}
@@ -146,8 +154,8 @@ function Register() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+            required/>
+
           <label style={styles.label}>PASSWORD</label>
           <input
             style={styles.input}
@@ -155,8 +163,12 @@ function Register() {
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            required/>
+
+          <p style={{ color: "#1E2A4A", fontSize: "11px", marginTop: "-12px", marginBottom: "12px" }}>
+            Min. 8 characters, 1 capital letter, 1 number
+          </p>
+
           <label style={styles.label}>CONFIRM PASSWORD</label>
           <input
             style={styles.input}
@@ -164,20 +176,21 @@ function Register() {
             placeholder="Confirm your password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
+            required/>
+
           <button style={styles.button} type="submit" disabled={loading}>
             {loading ? "Creating account..." : "CREATE ACCOUNT"}
           </button>
         </form>
-
-        <p style={styles.footer}>
-          Already have an account?{" "}
-          <span style={styles.link} onClick={() => navigate("/login")}>
-            Login
-          </span>
-        </p>
       </div>
+
+      <p style={styles.footer}>
+        Already have an account?{" "}
+        <span style={styles.link} onClick={() => navigate("/login")}>
+          Login
+        </span>
+      </p>
+
     </div>
   );
 }

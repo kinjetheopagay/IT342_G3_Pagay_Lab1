@@ -2,80 +2,73 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { saveAuth } from "../utils/auth";
+import staffGuardLogo from "../../assets/staffGuard_logo.png";
 
 const styles = {
   page: {
     minHeight: "100vh",
     backgroundColor: "#1E2A4A",
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "Inter, system-ui, sans-serif",
   },
-  card: {
-    backgroundColor: "#2D3E6B",
-    borderRadius: "16px",
-    padding: "40px",
-    width: "100%",
-    maxWidth: "420px",
-  },
-  logo: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "10px",
-    marginBottom: "8px",
-  },
-  logoText: {
-    color: "#FFFFFF",
-    fontSize: "22px",
-    fontWeight: "bold",
-  },
+  
   subtitle: {
     color: "#9BA4C7",
     fontSize: "14px",
     textAlign: "center",
-    marginBottom: "32px",
+    marginBottom: "24px",
+  },
+  card: {
+    backgroundColor: "#8B9FEF",
+    borderRadius: "16px",
+    padding: "32px",
+    width: "100%",
+    maxWidth: "420px",
   },
   label: {
-    color: "#9BA4C7",
+    color: "#1E2A4A",
     fontSize: "12px",
+    fontWeight: "bold",
     marginBottom: "6px",
     display: "block",
   },
   input: {
     width: "100%",
     padding: "12px 16px",
-    backgroundColor: "#1E2A4A",
-    border: "1px solid #4A3DB5",
-    borderRadius: "8px",
-    color: "#FFFFFF",
+    backgroundColor: "#C5CCF0",
+    border: "none",
+    borderRadius: "50px",
+    color: "#1E2A4A",
     fontSize: "14px",
     marginBottom: "16px",
     boxSizing: "border-box",
+    outline: "none",
   },
   button: {
-    width: "100%",
-    padding: "14px",
-    backgroundColor: "#4A3DB5",
+    display: "block",
+    margin: "8px auto 0 auto",
+    padding: "12px 40px",
+    backgroundColor: "#1E2A4A",
     color: "#FFFFFF",
     border: "none",
     borderRadius: "50px",
     fontSize: "15px",
     fontWeight: "bold",
     cursor: "pointer",
-    marginTop: "8px",
-  },
-  link: {
-    color: "#7F77DD",
-    cursor: "pointer",
-    textDecoration: "underline",
   },
   footer: {
     color: "#9BA4C7",
     fontSize: "13px",
     textAlign: "center",
     marginTop: "20px",
+  },
+  link: {
+    color: "#7F77DD",
+    cursor: "pointer",
+    textDecoration: "underline",
   },
   error: {
     color: "#E24B4A",
@@ -101,11 +94,7 @@ function Login() {
         email,
         password,
       });
-
-      // Save token and user to localStorage
       saveAuth(res.data.token, res.data);
-
-      // Redirect based on role
       if (res.data.role === "ADMIN") {
         navigate("/admin/dashboard");
       } else {
@@ -120,12 +109,16 @@ function Login() {
 
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
-        <div style={styles.logo}>
-          <span style={styles.logoText}>🛡️ StaffGuard</span>
-        </div>
-        <p style={styles.subtitle}>Login to your StaffGuard account</p>
 
+      {/* Card */}
+      <div style={styles.card}>
+
+        {/* Logo inside card */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "8px" }}>
+          <img src={staffGuardLogo} alt="StaffGuard" style={{ height: "80px", objectFit: "contain" }}/>
+        </div>
+
+        <p style={styles.subtitle}>Login to your StaffGuard account</p>
         {error && <p style={styles.error}>{error}</p>}
 
         <form onSubmit={handleSubmit}>
@@ -136,8 +129,8 @@ function Login() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+            required/>
+
           <label style={styles.label}>PASSWORD</label>
           <input
             style={styles.input}
@@ -145,20 +138,21 @@ function Login() {
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+            required/>
+
           <button style={styles.button} type="submit" disabled={loading}>
             {loading ? "Logging in..." : "LOGIN"}
           </button>
         </form>
-
-        <p style={styles.footer}>
-          New User?{" "}
-          <span style={styles.link} onClick={() => navigate("/register")}>
-            Create an account
-          </span>
-        </p>
       </div>
+
+      <p style={styles.footer}>
+        New User?{" "}
+        <span style={styles.link} onClick={() => navigate("/register")}>
+          Create an account
+        </span>
+      </p>
+
     </div>
   );
 }
