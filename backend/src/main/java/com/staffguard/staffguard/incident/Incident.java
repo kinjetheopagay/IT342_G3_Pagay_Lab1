@@ -32,7 +32,7 @@ public class Incident {
     private LocalDate date;
     private LocalTime time;
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String imageUrl;
 
     @Column(nullable = false)

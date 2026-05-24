@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "app_users")
 public class User {
 
     @Id
@@ -29,6 +29,6 @@ public class User {
     @Column(unique = true)
     private String employeeId;
 
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String profilePicture;
 }
