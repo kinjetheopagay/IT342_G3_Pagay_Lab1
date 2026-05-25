@@ -134,7 +134,7 @@ function SubmitIncident() {
         <button style={styles.backBtn} onClick={() => navigate("/employee/dashboard")}>
           ← Back
         </button>
-        <p style={styles.title}>📋 Submit Incident</p>
+        <p style={styles.title}>Submit Incident</p>
 
         {message && <div style={styles.success}>{message}</div>}
         {error && <div style={styles.error}>{error}</div>}

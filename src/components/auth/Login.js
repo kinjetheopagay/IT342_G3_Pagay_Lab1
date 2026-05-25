@@ -16,8 +16,9 @@ const styles = {
   },
   
   subtitle: {
-    color: "#9BA4C7",
+    color: "#FFFFFF",
     fontSize: "14px",
+    fontWeight: "bold",
     textAlign: "center",
     marginBottom: "24px",
   },

@@ -16,8 +16,9 @@ const styles = {
   },
   
   subtitle: {
-    color: "#9BA4C7",
+    color: "#FFFFFF",
     fontSize: "14px",
+    fontWeight: "bold",
     textAlign: "center",
     marginBottom: "24px",
   },
@@ -115,8 +116,7 @@ function Register() {
         email,
         password,
       });
-      saveAuth(res.data.token, res.data);
-      navigate("/employee/dashboard");
+      navigate("/login");
     } catch (err) {
       setError("Registration failed. Email may already be used.");
     } finally {

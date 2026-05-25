@@ -173,7 +173,7 @@ function Scheduling() {
         <div style={styles.topRow}>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <button style={styles.backBtn} onClick={() => navigate("/admin/dashboard")}>← Back</button>
-            <p style={styles.title}>📅 Scheduling</p>
+            <p style={styles.title}>Scheduling</p>
           </div>
           <button style={styles.addBtn} onClick={() => setShowModal(true)}>+ Create Schedule</button>
         </div>
@@ -189,7 +189,7 @@ function Scheduling() {
               <div>
                 <p style={styles.cardDate}>{formatDate(schedule.date)}</p>
                 <p style={styles.cardShift}>
-                  🕐 {schedule.shiftStart} — {schedule.shiftEnd}
+                  {schedule.shiftStart} — {schedule.shiftEnd}
                 </p>
               </div>
               <button style={styles.deleteBtn} onClick={() => handleDelete(schedule.id)}>
@@ -198,7 +198,7 @@ function Scheduling() {
             </div>
 
             <p style={styles.supervisorLabel}>SUPERVISOR</p>
-            <p style={styles.supervisorName}>👑 {schedule.supervisorName}</p>
+            <p style={styles.supervisorName}>{schedule.supervisorName}</p>
 
             <p style={styles.supervisorLabel}>EMPLOYEES</p>
             <div style={styles.employeeList}>
@@ -214,9 +214,9 @@ function Scheduling() {
       {showModal && (
         <div style={styles.modal}>
           <div style={styles.modalCard}>
-            <p style={styles.modalTitle}>📅 Create New Schedule</p>
+            <p style={styles.modalTitle}>Create New Schedule</p>
 
-            {error && <p style={styles.error}>⚠️ {error}</p>}
+            {error && <p style={styles.error}>{error}</p>}
 
             <label style={styles.label}>DATE *</label>
             <input

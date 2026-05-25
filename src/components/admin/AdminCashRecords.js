@@ -151,7 +151,7 @@ function AdminCashRecords() {
         <div style={styles.topRow}>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <button style={styles.backBtn} onClick={() => navigate("/admin/dashboard")}>← Back</button>
-            <p style={styles.title}>💰 Cash Records</p>
+            <p style={styles.title}>Cash Records</p>
           </div>
           <button style={styles.addBtn} onClick={() => setShowModal(true)}>+ Add Cash Record</button>
         </div>
@@ -190,8 +190,8 @@ function AdminCashRecords() {
       {showModal && (
         <div style={styles.modal}>
           <div style={styles.modalCard}>
-            <p style={styles.modalTitle}>💰 Add Cash Record</p>
-            {error && <p style={styles.error}>⚠️ {error}</p>}
+            <p style={styles.modalTitle}>Add Cash Record</p>
+            {error && <p style={styles.error}>{error}</p>}
 
             <label style={styles.label}>EMPLOYEE *</label>
             <select style={styles.select} value={form.employeeId}

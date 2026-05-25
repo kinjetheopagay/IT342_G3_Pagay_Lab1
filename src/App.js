@@ -12,6 +12,7 @@ import MyIncidents from "./components/employee/MyIncidents";
 import Attendance from "./components/employee/Attendance";
 import CashRecords from "./components/employee/CashRecords";
 import Profile from "./components/employee/Profile";
+import MySchedule from "./components/employee/MySchedule";
 
 // Admin
 import AdminDashboard from "./components/admin/AdminDashboard";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/employee/attendance" element={<PrivateRoute role="EMPLOYEE"><Attendance /></PrivateRoute>} />
         <Route path="/employee/cash-records" element={<PrivateRoute role="EMPLOYEE"><CashRecords /></PrivateRoute>} />
         <Route path="/employee/profile" element={<PrivateRoute role="EMPLOYEE"><Profile /></PrivateRoute>} />
+        <Route path="/employee/my-schedule" element={<MySchedule />} />
 
         {/* Admin Routes */}
         <Route path="/admin/dashboard" element={<PrivateRoute role="ADMIN"><AdminDashboard /></PrivateRoute>} />

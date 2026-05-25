@@ -72,7 +72,7 @@ function Attendance() {
         <button style={styles.backBtn} onClick={() => navigate("/employee/dashboard")}>
           ← Back
         </button>
-        <p style={styles.title}>🕐 Attendance</p>
+        <p style={styles.title}>Attendance</p>
 
         {loading && <p style={styles.empty}>Loading...</p>}
         {!loading && records.length === 0 && (

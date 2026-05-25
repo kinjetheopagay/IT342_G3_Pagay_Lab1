@@ -94,7 +94,7 @@ function IncidentApproval() {
         <button style={styles.backBtn} onClick={() => navigate("/admin/dashboard")}>
           ← Back
         </button>
-        <p style={styles.title}>⚠️ Incident Approval</p>
+        <p style={styles.title}>Incident Approval</p>
 
         {loading && <p style={styles.empty}>Loading...</p>}
         {!loading && incidents.length === 0 && (

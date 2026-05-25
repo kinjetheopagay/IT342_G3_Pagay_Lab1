@@ -173,6 +173,26 @@ function EmployeeDashboard() {
           ))}
         </div>
 
+        {/* My Schedule — full width button */}
+        <div
+          onClick={() => navigate("/employee/my-schedule")}
+          style={{
+            backgroundColor: "#2D3E6B",
+            borderRadius: "12px",
+            padding: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "12px",
+            cursor: "pointer",
+            marginBottom: "24px"
+          }}>
+          <span style={{ fontSize: "24px" }}></span>
+          <span style={{ color: "#FFFFFF", fontSize: "15px", fontWeight: "bold" }}>
+            MY SCHEDULE
+          </span>
+        </div>
+
         {/* Profile — click profile picture in Header to go to profile */}
 
       </div>

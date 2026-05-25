@@ -67,7 +67,7 @@ function AdminAttendance() {
         <button style={styles.backBtn} onClick={() => navigate("/admin/dashboard")}>
           ← Back
         </button>
-        <p style={styles.title}>🕐 Attendance Monitoring</p>
+        <p style={styles.title}>Attendance Monitoring</p>
 
         {loading && <p style={styles.empty}>Loading...</p>}
         {!loading && records.length === 0 && (

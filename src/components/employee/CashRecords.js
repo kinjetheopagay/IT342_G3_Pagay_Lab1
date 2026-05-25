@@ -75,7 +75,7 @@ function CashRecords() {
         <button style={styles.backBtn} onClick={() => navigate("/employee/dashboard")}>
           ← Back
         </button>
-        <p style={styles.title}>💰 Cash Records</p>
+        <p style={styles.title}>Cash Records</p>
 
         {loading && <p style={styles.empty}>Loading...</p>}
         {!loading && records.length === 0 && (
