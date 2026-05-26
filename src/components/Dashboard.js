@@ -17,7 +17,7 @@ function Dashboard() {
         }
 
         // Call backend with email as query parameter
-        const res = await axios.get("http://localhost:8080/api/user/me", {
+        const res = await axios.get("https://staffguard.onrender.com/api/user/me", {
           params: { email: email }
         });
 

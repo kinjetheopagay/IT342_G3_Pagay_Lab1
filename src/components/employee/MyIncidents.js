@@ -4,7 +4,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 import Header from "../utils/Header";
 
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "https://staffguard.onrender.com/api";
 
 const statusColors = {
   APPROVED: "#1D9E75",

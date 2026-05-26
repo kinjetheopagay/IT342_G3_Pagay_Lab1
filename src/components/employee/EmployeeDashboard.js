@@ -9,7 +9,7 @@ import myIncidentsImg from "../../assets/emp_myIncidents.png";
 import cashRecordsImg from "../../assets/emp_cashRecords.png";
 import attendanceImg from "../../assets/emp_attendance.png";
 
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "https://staffguard.onrender.com/api";
 
 const styles = {
   page: { minHeight: "100vh", backgroundColor: "#1E2A4A", fontFamily: "Inter, system-ui, sans-serif" },

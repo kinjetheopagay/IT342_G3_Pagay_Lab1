@@ -4,7 +4,7 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 import Header from "../utils/Header";
 
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "https://staffguard.onrender.com/api";
 
 const styles = {
   page: { minHeight: "100vh", backgroundColor: "#1E2A4A", fontFamily: "Inter, system-ui, sans-serif" },
