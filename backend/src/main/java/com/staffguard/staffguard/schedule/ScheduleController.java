@@ -41,6 +41,13 @@ public class ScheduleController {
         return scheduleService.getMyTodaySchedule(email);
     }
 
+@GetMapping("/my")
+    public List<ScheduleResponse> getMySchedules(
+            @RequestHeader("Authorization") String authHeader) {
+        String email = jwtUtil.getEmailFromToken(authHeader.replace("Bearer ", ""));
+        return scheduleService.getMySchedules(email);
+    }
+
     @DeleteMapping("/{id}")
     public String deleteSchedule(@PathVariable Long id) {
         return scheduleService.deleteSchedule(id);

@@ -53,11 +53,39 @@ public class ScheduleService {
     }
 
     public Optional<ScheduleResponse> getMyTodaySchedule(String email) {
-        User employee = userRepository.findByEmail(email)
+        User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Check if user is in employees list for today
+        Optional<Schedule> asEmployee = scheduleRepository
+                .findByEmployeesContainingAndDate(user, LocalDate.now());
+
+        if (asEmployee.isPresent()) {
+            return asEmployee.map(this::toResponse);
+        }
+
+        // Check if user is the supervisor for today
         return scheduleRepository
-                .findByEmployeesContainingAndDate(employee, LocalDate.now())
+                .findBySupervisorAndDate(user, LocalDate.now())
                 .map(this::toResponse);
+    }
+
+public List<ScheduleResponse> getMySchedules(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Get schedules where user is an employee
+        List<Schedule> asEmployee = scheduleRepository.findByEmployeesContaining(user);
+
+        // Get schedules where user is the supervisor
+        List<Schedule> asSupervisor = scheduleRepository.findBySupervisor(user);
+
+        // Combine both lists, remove duplicates, sort by date descending
+        return java.util.stream.Stream.concat(asEmployee.stream(), asSupervisor.stream())
+                .distinct()
+                .sorted((a, b) -> b.getDate().compareTo(a.getDate()))
+                .map(this::toResponse)
+                .collect(Collectors.toList());
     }
 
     public String deleteSchedule(Long id) {

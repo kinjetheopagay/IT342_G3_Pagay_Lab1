@@ -10,4 +10,7 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
     List<Schedule> findAllByOrderByDateDesc();
     List<Schedule> findByDate(LocalDate date);
     Optional<Schedule> findByEmployeesContainingAndDate(User employee, LocalDate date);
+    List<Schedule> findByEmployeesContaining(User employee);
+    List<Schedule> findBySupervisor(User supervisor);
+    Optional<Schedule> findBySupervisorAndDate(User supervisor, LocalDate date);
 }
