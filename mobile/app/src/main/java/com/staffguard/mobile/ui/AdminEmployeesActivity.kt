@@ -26,7 +26,7 @@ class AdminEmployeesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_employees)
-        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerEmployees)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -98,6 +98,8 @@ class AdminEmployeesAdapter(
         val tvEmail: TextView = view.findViewById(R.id.tvEmail)
         val tvRole: TextView = view.findViewById(R.id.tvRole)
         val btnDelete: Button = view.findViewById(R.id.btnDelete)
+        val ivAvatar: android.widget.ImageView = view.findViewById(R.id.ivAvatar)
+        val tvAvatarPlaceholder: TextView = view.findViewById(R.id.tvAvatarPlaceholder)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -112,6 +114,27 @@ class AdminEmployeesAdapter(
         holder.tvName.text = user.name
         holder.tvEmail.text = user.email
         holder.tvRole.text = user.role
+
+        // Show profile picture if exists
+        if (!user.profilePicture.isNullOrEmpty()) {
+            try {
+                val pureBase64 = if (user.profilePicture.contains(","))
+                    user.profilePicture.split(",")[1]
+                else
+                    user.profilePicture
+                val bytes = android.util.Base64.decode(pureBase64, android.util.Base64.DEFAULT)
+                val bitmap = android.graphics.BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                holder.ivAvatar.setImageBitmap(bitmap)
+                holder.ivAvatar.visibility = View.VISIBLE
+                holder.tvAvatarPlaceholder.visibility = View.GONE
+            } catch (e: Exception) {
+                holder.ivAvatar.visibility = View.GONE
+                holder.tvAvatarPlaceholder.visibility = View.VISIBLE
+            }
+        } else {
+            holder.ivAvatar.visibility = View.GONE
+            holder.tvAvatarPlaceholder.visibility = View.VISIBLE
+        }
 
         val roleColor = if (user.role == "ADMIN")
             Color.parseColor("#E85D24")

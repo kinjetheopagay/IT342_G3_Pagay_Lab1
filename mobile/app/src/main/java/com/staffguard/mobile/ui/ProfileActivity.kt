@@ -42,7 +42,7 @@ class ProfileActivity : AppCompatActivity() {
         val token = TokenManager.getBearerToken(this)
         val apiService = ApiClient.retrofit.create(ApiService::class.java)
 
-        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         findViewById<Button>(R.id.btnLogout).setOnClickListener {
             TokenManager.clearAll(this)
@@ -148,4 +148,5 @@ class ProfileActivity : AppCompatActivity() {
             tvAvatarPlaceholder.visibility = View.VISIBLE
         }
     }
+
 }

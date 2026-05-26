@@ -27,7 +27,7 @@ class AdminAttendanceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_attendance)
-        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerAdminAttendance)
         recyclerView.layoutManager = LinearLayoutManager(this)

@@ -2,44 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1E2A4A"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#1E2A4A">
 
-    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2D3E6B"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
         <TextView
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="← Back"
-            android:textColor="#7F77DD"
             android:textSize="13sp"
-            android:padding="8dp"/>
+            android:textColor="#7F77DD"
+            android:padding="8dp"
+            android:layout_marginEnd="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Attendance"
-            android:textColor="#FFFFFF"
+            android:text="📅 My Schedule"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginStart="8dp"/>
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 
-    <!-- List -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAttendance"
+        android:id="@+id/recyclerMySchedule"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:paddingHorizontal="24dp"
         android:clipToPadding="false"/>
 
 </LinearLayout>

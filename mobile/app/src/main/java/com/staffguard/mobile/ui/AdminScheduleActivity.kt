@@ -34,7 +34,7 @@ class AdminScheduleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_schedule)
 
-        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         recyclerView = findViewById(R.id.recyclerSchedule)
         recyclerView.layoutManager = LinearLayoutManager(this)

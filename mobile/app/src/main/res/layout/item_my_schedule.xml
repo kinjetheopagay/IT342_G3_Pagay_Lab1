@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#2D3E6B"
+    android:padding="20dp"
+    android:layout_marginBottom="16dp">
+
+    <!-- TODAY badge -->
+    <TextView
+        android:id="@+id/tvToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TODAY"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#E85D24"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"/>
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="#7F77DD"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Shift -->
+    <TextView
+        android:id="@+id/tvShift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Supervisor label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUPERVISOR"
+        android:textSize="11sp"
+        android:textColor="#9BA4C7"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Supervisor name -->
+    <TextView
+        android:id="@+id/tvSupervisor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#1D9E75"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Employees label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EMPLOYEES"
+        android:textSize="11sp"
+        android:textColor="#9BA4C7"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Employee badges -->
+    <LinearLayout
+        android:id="@+id/layoutEmployees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
+
+</LinearLayout>

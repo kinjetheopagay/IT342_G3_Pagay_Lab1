@@ -8,15 +8,27 @@
     android:gravity="center_vertical"
     android:layout_marginBottom="12dp">
 
-    <!-- Avatar circle -->
+    <!-- Profile picture (shown when available) -->
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:background="#4A3DB5"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"/>
+
+    <!-- Placeholder emoji (shown when no profile picture) -->
     <TextView
+        android:id="@+id/tvAvatarPlaceholder"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:text="👤"
         android:textSize="20sp"
         android:gravity="center"
         android:background="#4A3DB5"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp"
+        android:visibility="visible"/>
 
     <!-- Name + Email -->
     <LinearLayout

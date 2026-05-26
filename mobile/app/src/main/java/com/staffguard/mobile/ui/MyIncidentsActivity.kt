@@ -9,6 +9,7 @@ import com.staffguard.mobile.R
 import com.staffguard.mobile.api.ApiClient
 import com.staffguard.mobile.api.ApiService
 import com.staffguard.mobile.models.IncidentResponse
+import android.widget.TextView
 import com.staffguard.mobile.utils.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +21,7 @@ class MyIncidentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_incidents)
 
-        val btnBack = findViewById<Button>(R.id.btnBack)
+        val btnBack = findViewById<TextView>(R.id.btnBack)
         val rvIncidents = findViewById<RecyclerView>(R.id.rvIncidents)
 
         btnBack.setOnClickListener { finish() }

@@ -26,140 +26,145 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="12dp">
 
+            <!-- Incidents -->
             <LinearLayout
                 android:id="@+id/cardIncidents"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:background="#2D3E6B"
                 android:layout_marginEnd="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/adm_incidents"
+                    android:scaleType="centerCrop"/>
                 <TextView
-                    android:text="⚠️"
-                    android:textSize="32sp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"/>
-                <TextView
                     android:text="INCIDENTS"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
             </LinearLayout>
 
+            <!-- Attendance -->
             <LinearLayout
                 android:id="@+id/cardAttendance"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:background="#2D3E6B"
                 android:layout_marginEnd="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/adm_attendance"
+                    android:scaleType="centerCrop"/>
                 <TextView
-                    android:text="🕐"
-                    android:textSize="32sp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"/>
-                <TextView
                     android:text="ATTENDANCE"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
             </LinearLayout>
 
+            <!-- Scheduling -->
             <LinearLayout
                 android:id="@+id/cardSchedule"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:background="#2D3E6B">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/adm_scheduling"
+                    android:scaleType="centerCrop"/>
                 <TextView
-                    android:text="📅"
-                    android:textSize="32sp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"/>
-                <TextView
                     android:text="SCHEDULING"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
             </LinearLayout>
 
         </LinearLayout>
 
-        <!-- Row 2: Cash Records, Employees (2 cards, same size as above) -->
+        <!-- Row 2: Cash Records, Employees -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="32dp">
 
+            <!-- Cash Records -->
             <LinearLayout
                 android:id="@+id/cardCashRecords"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:background="#2D3E6B"
                 android:layout_marginEnd="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/adm_cash_records"
+                    android:scaleType="centerCrop"/>
                 <TextView
-                    android:text="💰"
-                    android:textSize="32sp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"/>
-                <TextView
                     android:text="CASH RECORDS"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
             </LinearLayout>
 
+            <!-- Employees -->
             <LinearLayout
                 android:id="@+id/cardEmployees"
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center"
                 android:background="#2D3E6B"
                 android:layout_marginEnd="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:src="@drawable/adm_employees"
+                    android:scaleType="centerCrop"/>
                 <TextView
-                    android:text="👥"
-                    android:textSize="32sp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"/>
-                <TextView
                     android:text="EMPLOYEES"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
             </LinearLayout>
 
-            <!-- Empty third slot to keep grid alignment -->
+            <!-- Empty third slot for grid alignment -->
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="110dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#1E2A4A"/>
 

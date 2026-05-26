@@ -12,20 +12,20 @@
         <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:background="#2D3E6B"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:padding="16dp">
 
-            <Button
+            <TextView
                 android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="← Back"
                 android:textColor="#7F77DD"
-                android:backgroundTint="@android:color/transparent"
-                android:textSize="13sp"/>
+                android:textSize="13sp"
+                android:padding="8dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,14 +104,11 @@
                 android:textSize="12sp"
                 android:layout_marginBottom="6dp"/>
 
-            <EditText
-                android:id="@+id/etSupervisor"
+            <Spinner
+                android:id="@+id/spinnerSupervisor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Supervisor name"
-                android:textColor="#FFFFFF"
+                android:layout_height="48dp"
                 android:background="#2D3E6B"
-                android:padding="12dp"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Date -->
@@ -127,11 +124,12 @@
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="YYYY-MM-DD"
+                android:hint="Tap to select date"
                 android:textColor="#FFFFFF"
                 android:background="#2D3E6B"
                 android:padding="12dp"
-                android:inputType="date"
+                android:inputType="none"
+                android:focusable="false"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Image Upload -->

@@ -5,13 +5,14 @@
     android:orientation="vertical"
     android:background="#1E2A4A">
 
+    <!-- Header row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingStart="16dp"
-        android:paddingEnd="24dp"
+        android:paddingEnd="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
 
@@ -23,15 +24,25 @@
             android:textSize="13sp"
             android:textColor="#7F77DD"
             android:backgroundTint="#1E2A4A"
-            android:layout_marginEnd="12dp"/>
+            android:layout_marginEnd="8dp"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="💰 Cash Records"
+            android:layout_weight="1"
+            android:text="Cash Records"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btnAddCashRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="+ Add"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#4A3DB5"/>
 
     </LinearLayout>
 

@@ -22,7 +22,7 @@ class AttendanceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_attendance)
 
-        val btnBack = findViewById<Button>(R.id.btnBack)
+        val btnBack = findViewById<TextView>(R.id.btnBack)
         val rvAttendance = findViewById<RecyclerView>(R.id.rvAttendance)
 
         btnBack.setOnClickListener { finish() }

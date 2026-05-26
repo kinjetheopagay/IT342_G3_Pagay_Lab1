@@ -1,64 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
     android:background="#1E2A4A">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="StaffGuard"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="#1976D2"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Workplace Monitoring System"
-        android:textSize="13sp"
-        android:textColor="#888888"
-        android:layout_marginBottom="40dp"/>
-
-    <EditText
-        android:id="@+id/email"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:layout_marginBottom="16dp"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:layout_marginBottom="24dp"/>
+        <!-- Card with logo inside -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#8B9FEF"
+            android:padding="24dp"
+            android:layout_marginTop="48dp">
 
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp"/>
+            <!-- Logo inside card -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/staff_guard_logo"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"/>
 
-    <TextView
-        android:id="@+id/tvRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don't have an account? Register here"
-        android:textColor="#1976D2"
-        android:padding="8dp"/>
+            <!-- Subtitle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login to your StaffGuard account"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#1E2A4A"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp"/>
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EMAIL"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#1E2A4A"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="16dp"
+                android:background="#C5CCF0"
+                android:textColor="#1E2A4A"
+                android:textColorHint="#9BA4C7"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PASSWORD"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#1E2A4A"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:paddingHorizontal="16dp"
+                android:background="#C5CCF0"
+                android:textColor="#1E2A4A"
+                android:textColorHint="#9BA4C7"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="LOGIN"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#1E2A4A"
+                android:paddingHorizontal="40dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <!-- Footer -->
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User? Create an account"
+            android:textColor="#7F77DD"
+            android:textSize="13sp"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -77,24 +77,54 @@
             android:orientation="horizontal"
             android:layout_marginBottom="12dp">
 
-            <Button
+            <!-- Submit Incident -->
+            <LinearLayout
                 android:id="@+id/btnSubmitIncident"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Submit Incident"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#2D3E6B"
-                android:layout_marginEnd="8dp"/>
+                android:orientation="vertical"
+                android:background="#2D3E6B"
+                android:layout_marginEnd="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:src="@drawable/emp_submit_incident"
+                    android:scaleType="centerCrop"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SUBMIT INCIDENT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
+            </LinearLayout>
 
-            <Button
+            <!-- My Incidents -->
+            <LinearLayout
                 android:id="@+id/btnMyIncidents"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="My Incidents"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#2D3E6B"/>
+                android:orientation="vertical"
+                android:background="#2D3E6B">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:src="@drawable/emp_my_incidents"
+                    android:scaleType="centerCrop"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MY INCIDENTS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -103,26 +133,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="12dp">
 
-            <Button
+            <!-- Attendance -->
+            <LinearLayout
                 android:id="@+id/btnAttendance"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Attendance"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#2D3E6B"
-                android:layout_marginEnd="8dp"/>
+                android:orientation="vertical"
+                android:background="#2D3E6B"
+                android:layout_marginEnd="8dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:src="@drawable/emp_attendance"
+                    android:scaleType="centerCrop"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ATTENDANCE"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
+            </LinearLayout>
 
-            <Button
+            <!-- Cash Records -->
+            <LinearLayout
                 android:id="@+id/btnCashRecords"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cash Records"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#2D3E6B"/>
+                android:orientation="vertical"
+                android:background="#2D3E6B">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:src="@drawable/emp_cash_records"
+                    android:scaleType="centerCrop"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CASH RECORDS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"/>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -132,6 +192,15 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:text="My Profile"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2D3E6B"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnMySchedule"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="My Schedule"
             android:textColor="#FFFFFF"
             android:backgroundTint="#2D3E6B"
             android:layout_marginBottom="12dp"/>

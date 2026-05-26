@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#2D3E6B"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Cash Record"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#E24B4A"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="EMPLOYEE *" android:textSize="11sp" android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+        <Spinner android:id="@+id/spinnerEmployee"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#1E2A4A" android:layout_marginBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SUPERVISOR *" android:textSize="11sp" android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+        <Spinner android:id="@+id/spinnerSupervisor"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#1E2A4A" android:layout_marginBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="DATE *" android:textSize="11sp" android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+        <EditText android:id="@+id/etDate"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:hint="Tap to select date" android:inputType="none"
+            android:background="#1E2A4A" android:textColor="#FFFFFF"
+            android:textColorHint="#9BA4C7" android:paddingHorizontal="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="POS *" android:textSize="11sp" android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+        <Spinner android:id="@+id/spinnerPos"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#1E2A4A" android:layout_marginBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="TOTAL SALES *" android:textSize="11sp" android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+        <EditText android:id="@+id/etTotalSales"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:hint="0.00" android:inputType="numberDecimal"
+            android:background="#1E2A4A" android:textColor="#FFFFFF"
+            android:textColorHint="#9BA4C7" android:paddingHorizontal="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="STATUS *" android:textSize="11sp" android:textColor="#9BA4C7"
+            android:layout_marginBottom="6dp"/>
+        <Spinner android:id="@+id/spinnerStatus"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="#1E2A4A" android:layout_marginBottom="16dp"/>
+
+        <TextView android:id="@+id/tvAmountLabel"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="AMOUNT (SHORT/OVER) *" android:textSize="11sp"
+            android:textColor="#9BA4C7" android:layout_marginBottom="6dp"
+            android:visibility="gone"/>
+        <EditText android:id="@+id/etAmount"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:hint="0.00" android:inputType="numberDecimal"
+            android:background="#1E2A4A" android:textColor="#FFFFFF"
+            android:textColorHint="#9BA4C7" android:paddingHorizontal="12dp"
+            android:layout_marginBottom="16dp" android:visibility="gone"/>
+
+        <Button android:id="@+id/btnSubmit"
+            android:layout_width="match_parent" android:layout_height="56dp"
+            android:text="SUBMIT" android:textColor="#FFFFFF" android:textStyle="bold"
+            android:backgroundTint="#4A3DB5" android:layout_marginBottom="8dp"/>
+
+        <Button android:id="@+id/btnCancel"
+            android:layout_width="match_parent" android:layout_height="56dp"
+            android:text="CANCEL" android:textColor="#FFFFFF" android:textStyle="bold"
+            android:backgroundTint="#E24B4A"/>
+
+    </LinearLayout>
+</ScrollView>

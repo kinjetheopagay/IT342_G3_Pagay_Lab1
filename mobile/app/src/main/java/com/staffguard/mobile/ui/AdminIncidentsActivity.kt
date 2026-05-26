@@ -1,7 +1,6 @@
 package com.staffguard.mobile.ui
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +10,7 @@ import com.staffguard.mobile.api.ApiClient
 import com.staffguard.mobile.api.ApiService
 import com.staffguard.mobile.models.IncidentResponse
 import com.staffguard.mobile.utils.TokenManager
+import android.widget.TextView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,7 +20,7 @@ class AdminIncidentsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_incidents)
-        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerAdminIncidents)
         recyclerView.layoutManager = LinearLayoutManager(this)

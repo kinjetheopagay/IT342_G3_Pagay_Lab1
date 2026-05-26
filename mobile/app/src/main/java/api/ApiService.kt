@@ -7,6 +7,7 @@ import com.staffguard.mobile.models.IncidentRequest
 import com.staffguard.mobile.models.IncidentResponse
 import com.staffguard.mobile.models.ScheduleResponse
 import com.staffguard.mobile.models.ProfilePictureRequest
+import com.staffguard.mobile.models.CashRecordRequest
 import com.staffguard.mobile.models.User
 import retrofit2.Call
 import retrofit2.http.*
@@ -72,5 +73,18 @@ interface ApiService {
     fun updateProfilePicture(
         @Header("Authorization") token: String,
         @Body request: ProfilePictureRequest
+    ): Call<Any>
+
+    @GET("schedules/my")
+    fun getMySchedules(@Header("Authorization") token: String): Call<List<ScheduleResponse>>
+
+    @GET("schedules/my/today")
+    fun getMyTodaySchedule(@Header("Authorization") token: String): Call<ScheduleResponse?>
+
+    @POST("cash-records/employee/{employeeId}")
+    fun addCashRecord(
+        @Header("Authorization") token: String,
+        @Path("employeeId") employeeId: Long,
+        @Body request: CashRecordRequest
     ): Call<Any>
 }

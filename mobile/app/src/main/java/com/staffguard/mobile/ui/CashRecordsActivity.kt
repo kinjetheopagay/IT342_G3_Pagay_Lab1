@@ -9,6 +9,7 @@ import com.staffguard.mobile.R
 import com.staffguard.mobile.api.ApiClient
 import com.staffguard.mobile.api.ApiService
 import com.staffguard.mobile.models.CashRecordResponse
+import android.widget.TextView
 import com.staffguard.mobile.utils.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +21,7 @@ class CashRecordsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cash_records)
 
-        val btnBack = findViewById<Button>(R.id.btnBack)
+        val btnBack = findViewById<TextView>(R.id.btnBack)
         val rvCashRecords = findViewById<RecyclerView>(R.id.rvCashRecords)
 
         btnBack.setOnClickListener { finish() }
